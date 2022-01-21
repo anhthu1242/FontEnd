@@ -1,0 +1,44 @@
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    /* khi thêm padding hay border thì sẽ không bị lỗi kích thước */
+
+
+.item {
+    background-color: orange;
+    color: #fff;
+    text-align: center;
+    height: 180px;
+    line-height: 180px;
+    font-size: 20px;
+    margin-top: 16px;
+}
+
+
+.main{
+    display: flex;
+    padding: 0 32px;
+}
+.slidebar{
+    width: 300px;
+    background-color: #666;
+}
+
+.content{
+    
+    flex-grow: 1;
+    /* tự động chiếm hết phần còn lại  */
+}
+
+@media (min-width:740px) and (max-width:1023px){
+    .hide-on-tablet{
+        display: none;
+    }
+}
+
+@media (max-width:740px){
+    .hide-on-mobile{
+        display: none;
+    }
+}
