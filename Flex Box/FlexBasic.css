@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ccc;
+}
+
+/* Navbar */
+.nav {
+    min-height: 42px;
+    background-color: #EF5122;
+    display: flex;
+    justify-content: space-between; /* làm cho các flex item cách xa nhau ra */
+}
+
+.nav-list {
+    padding-left: 0;
+    margin: auto 16px;/* tạo khoảng trống giữa các ptu nhỏ trong 1 item */
+}
+
+.nav-item {
+    color: #fff;
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+}
+
+/* Form layout */
+.form-container {
+    max-width: 720px;
+    padding: 32px;
+    margin: 36px auto 0 auto;
+    background-color: #fff;
+}
+
+.form__row {
+    padding: 8px 0;
+    display: flex;
+    /*  display: inline-flex: cho các flex item lên cùng 1 hàng  */
+}
+
+.form__label {
+    min-width: 90px;/* TH nếu 2 label bị lệch thì thêm min-width để cho chúng thẳng hàng và đẹp hơn */
+}
+
+.form__input {
+    flex: 1;/* làm cho item đó chiếm hết khoảng không gian theo chiều nằm của nó */
+}
+
+/* Column layout */
+.column-layout {
+    margin-top: 36px;
+    padding: 12px 0;
+    background-color: #fff;
+    display: flex;
+}
+    /* ở đây nó đang tạo tỉ lệ giữa container và item bằng việc dùng thuộc tính flex 
+    sử dụng order để thay đôi vị trí của item */
+.column-item {
+    padding: 0 16px;
+    flex: 1;
+}
+
+.sidebar-one {
+    flex: 1;
+    order: 1;
+}
+
+.sidebar-two {
+    flex: 1;
+    order: 2;
+}
+
+.main-column { 
+    flex: 3;
+    order: 3;
+}
+
+/* Feature layout */
+.feature-layout {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;/* tạo ra khoảng trống giữa các item và khoảng trống đầu cuối của các item sao cho giữa = 2 đầu|cuối */
+}
+
+/* PC, Tablet */
+@media (min-width: 740px) {
+    .feature-layout {
+        flex-direction: row;
+    }
+}
+
+.feature-item {
+    padding: 12px 16px;
+    margin-top: 16px;
+    flex-basis: 30%;/* dùng để chia các item sao cho bằng nhau nhanh nhất */
+    
+}
+
+.feature-item:nth-child(1) {
+    background-color: rgb(192, 227, 222);
+}
+
+.feature-item:nth-child(2) {
+    background-color: rgb(227, 200, 192);
+}
+
+.feature-item:nth-child(3) {
+    background-color: rgb(226, 192, 227);
+}
+
+/* Wrap layout */
+.wrap-layout {
+    background-color: #fff;
+    margin-top: 36px;
+    padding: 12px 0 32px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;/* nếu quá độ dài cho phép nó sẽ đẩy item xuống dưới */
+    /* wap-reverse: đổi chiều đẩy của item lên trên không đẩy xuống dưới như mặc định nữa */
+}
+
+.wrap-layout__item {
+    width: 148px;
+    height: 90px;
+    color: #fff;
+    text-align: center;
+    line-height: 90px;
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 20px;
+    background-color: #EF5122;
+}
+
+/* Center layout */
+.center-layout {
+    background-color: rgb(192, 227, 194);
+    margin: 36px auto 0 auto;
+    padding: 32px 0;
+    max-width: 640px;
+    height: 360px;
+    display: flex;
+}
+
+.center-layout__item {
+    font-size: 42px;
+    font-weight: 700;
+    margin: auto;
+}
+
+/* Chart layout */
+.chart-layout {
+    margin: 36px auto 0 auto;
+    padding: 32px 0;
+    height: 320px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* để đẩy trục cross về 1 điểm  */
+}
+
+.chart-layout__item {
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    height: var(--percent);/* --percent: biến local dk khai báo trong file html */
+    background-color: #EF5122;
+    animation: growth ease-in 0.5;
+}
+@keyframes growth {
+    from {
+        opacity: 0;
+        height: calc( var(--percent)-50%);
+    }
+    to{
+        opacity: 1;
+        height:  var(--percent);
+    }
+}
+/* End */
+.the-end {
+    margin: 12px auto 48px auto;
+    padding: 32px 0;
+    max-width: 740px;
+    min-height: 360px;
+    display: flex;
+    
+}
+
+.the-end__first {
+    padding: 4px 16px;
+    background-color: #fff;
+    flex: 1;
+}
+
+.the-end__second {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.the-end__second-one {
+    flex: 1;
+    padding: 4px 16px;
+    background-color: rgb(227, 192, 214);
+}
+
+.the-end__second-two {
+    flex: 1;
+    padding: 4px 16px;
+    background-color: rgb(192, 210, 227);
+}
+
+
+/* flex : 1 
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basic: 1;
+    
+
+
+    ----------------------
+
+    flex-flow: row no-wrap;
+    
+*/
